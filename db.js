@@ -1,2 +1,10 @@
+
+
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/mydatabase');
+mongoose.connect(`${process.env.DATABASE_URL}`)
+    .then(() => {
+        console.log('db success');
+    })
+    .catch(() => {
+        console.log('db connection failed');
+    })
